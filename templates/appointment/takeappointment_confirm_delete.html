@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Appointment Delete{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5 mb-5 mb-lg-0">
+                <center>
+                    <h4 class="highlight">Вы действительно хотите удалить запись?</h4>
+
+                </center>
+
+
+                <form method="post">{% csrf_token %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+
+                            <th scope="col">Имя</th>
+                            <th scope="col">Номер телефона</th>
+                            <th scope="col">Сообщение</th>
+                            <th scope="col">Дата</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                             <td> {{ object.full_name }}</td>
+                            <td> {{ object.phone_number }}</td>
+                            <td>{{ object.message }}</td>
+                            <td>{{ object.date }}</td>
+                        </tr>
+                        </br>
+                        </br>
+                        </tbody>
+                    </table>
+                    <center><input class="btn btn-danger" type="submit" value="Delete">
+                    </center>
+
+
+                </form>
+
+
+                </br>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
